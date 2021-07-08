@@ -6,7 +6,7 @@ module ScorchedEarth
       def setup
         super
 
-        event_runner.subscribe(Events::GameOver) do |event|
+        event_runner.subscribe(Events::GameOver) do |state, event|
           event.time < Time.now ? setup : event_runner.publish(event)
         end
       end

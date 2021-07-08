@@ -4,7 +4,7 @@ module ScorchedEarth
       def setup
         super
 
-        event_runner.subscribe(Events::MouseMoved) do |event|
+        event_runner.subscribe(Events::MouseMoved) do |state, event|
           @mouse = Mouse.new event.x, event.y, mouse.pressed_at
         end
       end

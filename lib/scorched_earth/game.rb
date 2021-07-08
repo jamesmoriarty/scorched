@@ -51,11 +51,11 @@ module ScorchedEarth
 
     def update(delta)
       event_runner.publish Events::GameUpdate.new delta
-      event_runner.process!
+      event_runner.process! nil
     end
 
     def render(graphics)
-      event_runner.run Events::GameRender.new graphics
+      event_runner.run nil, Events::GameRender.new(graphics)
     end
 
     def publish(event)

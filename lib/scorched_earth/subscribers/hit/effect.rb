@@ -6,7 +6,7 @@ module ScorchedEarth
       def setup
         super
 
-        event_runner.subscribe(Events::Hit) do |event|
+        event_runner.subscribe(Events::Hit) do |state, event|
           objects << Explosion.new(event.object.x, event.object.y)
         end
       end

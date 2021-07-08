@@ -4,7 +4,7 @@ module ScorchedEarth
       def setup
         super
 
-        event_runner.subscribe(Events::GameUpdate) do |event|
+        event_runner.subscribe(Events::GameUpdate) do |state, event|
           @objects = objects.map { |object| object.update event.delta }.compact
         end
       end

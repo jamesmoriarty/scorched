@@ -4,7 +4,7 @@ module ScorchedEarth
       def setup
         super
 
-        event_runner.subscribe(Events::GameUpdate) do
+        event_runner.subscribe(Events::GameUpdate) do |state, event|
           objects
             .select   { |object| object.is_a? Shot }
             .select   { |object| array.fetch(object.x, 0) > object.y }

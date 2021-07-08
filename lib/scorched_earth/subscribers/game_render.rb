@@ -1,10 +1,12 @@
 module ScorchedEarth
   module Subscribers
     module GameRender
+
+
       def setup
         super
 
-        event_runner.subscribe(Events::GameRender) do |event|
+        event_runner.subscribe(Events::GameRender) do |state, event|
           graphics = event.graphics
 
           graphics.set_color color_palette.get('sky')

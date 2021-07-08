@@ -4,7 +4,7 @@ module ScorchedEarth
       def setup
         super
 
-        event_runner.subscribe(Events::MouseReleased) do |_event|
+        event_runner.subscribe(Events::MouseReleased) do |state, event|
           if mouse.pressed_at && mouse.x && mouse.y
             shot = Shot.new current_player.x, array[current_player.x], velocity_x, velocity_y
 
